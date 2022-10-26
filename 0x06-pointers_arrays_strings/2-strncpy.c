@@ -1,84 +1,46 @@
 #include "holberton.h"
 
-
-
 /**
  *
- * * rot13 - encodes a string using rot13.
+ *  *_strncpy -  copies a string
  *
- * * @str: the string to be encoded.
+ *   
  *
- * *
+ *    *Return: dest
  *
- * * Return: A pointer to the encoded string.
- *
- * */
+ *     */
 
-char *rot13(char *str)
+
+
+char *_strncpy(char *dest, char *src, int n)
+
+
 
 {
 
-	       int i = 0;
+		int i;
 
-	              int j;
 
-		             char alphabet[52] = {'A', 'B', 'C', 'D', 'E', 'F',
 
-				     			     'G', 'H', 'I', 'J', 'K', 'L',
+			i = 0;
 
-							     			     'M', 'N', 'O', 'P', 'Q', 'R',
+				while (i < n && src[i] != '\0')
 
-										     			     'S', 'T', 'U', 'V', 'W', 'X',
+						{
 
-													     			     'Y', 'Z', 'a', 'b', 'c', 'd',
+									dest[i] = src[i];
 
-																     			     'e', 'f', 'g', 'h', 'i', 'j',
+											i++;
 
-																			     			     'k', 'l', 'm', 'n', 'o', 'p',
+												}
 
-																						     			     'q', 'r', 's', 't', 'u', 'v',
 
-																									     			     'w', 'x', 'y', 'z'};
 
-			     	char rot13key[52] = {'N', 'O', 'P', 'Q', 'R', 'S',
-
-								     'T', 'U', 'V', 'W', 'X', 'Y',
-
-								     			     'Z', 'A', 'B', 'C', 'D', 'E',
-
-											     			     'F', 'G', 'H', 'I', 'J', 'K',
-
-														     			     'L', 'M', 'n', 'o', 'p', 'q',
-
-																	     			     'r', 's', 't', 'u', 'v', 'w',
-
-																				     			     'x', 'y', 'z', 'a', 'b', 'c',
-
-																							     			     'd', 'e', 'f', 'g', 'h', 'i',
-
-																										     			     'j', 'k', 'l', 'm'};
-
-					while (str[i])
+					while (i < n)
 
 							{
 
-										for (j = 0; j < 52; j++)
-
-													{
-
-																	if (str[i] == alphabet[j])
-
-																					{
-
-																										str[i] = rot13key[j];
-
-																														break;
-
-																																	}
-
-																			}
-
-
+										dest[i] = '\0';
 
 												i++;
 
@@ -86,4 +48,6 @@ char *rot13(char *str)
 
 
 
-						return (str);
+						return (dest);
+
+}OA
