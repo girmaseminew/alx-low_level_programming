@@ -1,111 +1,47 @@
 #include "holberton.h"
 
-#include <stdio.h>
-
-/**
- *
- *  * print_line - prints a s bytes of a buffer
- *
- *   * @c: buffer to print
- *
- *    * @s: bytes of buffer to print
- *
- *     * @l: line of buffer to print
- *
- *      *
- *
- *       * Return: void
- *
- *        */
-
-
-
-void print_line(char *c, int s, int l)
-
-{
-
-	int j, k;
-
-	for (j = 0; j <= 9; j++)
-
-	{
-
-		if (j <= s)
-
-			printf("%02x", c[l * 10 + j]);
-
-		else
-
-			printf("  ");
-
-		if (j % 2)
-
-			putchar(' ');
-
-	}
-
-	for (k = 0; k <= s; k++)
-
-	{
-
-		if (c[l * 10 + k] > 31 && c[l * 10 + k] < 127)
-
-			putchar(c[l * 10 + k]);
-
-		else
-
-			putchar('.');
-
-	}
-
-}
-
 
 
 /**
  *
- *  * print_buffer - prints a buffer
+ *  * leet - function that encodes a string into 1337
  *
- *   
+ *   * @str: character to be checked
  *
- *    * Return: void
+ *    * Return: if seperator return 1. Otherwise return 0;
  *
  *     */
 
-void print_buffer(char *b, int size)
+char *leet(char *str)
 
 {
 
-	int i;
+		/*Declaring variables*/
 
-	for (i = 0; i <= (size - 1) / 10 && size; i++)
+		int count = 0, i = 0;
 
-	{
+			char *letters = "aeotlAEOTL";
 
-		printf("%08x: ", i * 10);
+				char *nums = "4307143071";
 
-		if (i < size / 10)
+				         /*Start WHILE*/
 
-		{
+					while (str[count] != '\0')
 
-			print_line(b, 9, i);
+							{i = 0;
 
-		}
+										while (letters[i] != '\0') /*Evaluate all cases*/
 
-		else
+													{
 
-		{
+																	if (str[count] == letters[i]) /*Match between string a letters*/
 
-			print_line(b, size % 10 - 1, i);
+																						str[count] = nums[i];
 
-		}
+																				i++;}
 
-		putchar('\n');
+												count++; /*Add count*/
 
-	}
+													} /*End WHILE*/
 
-	if (size == 0)
-
-		putchar('\n');
-
-}
+					 return (str);}
