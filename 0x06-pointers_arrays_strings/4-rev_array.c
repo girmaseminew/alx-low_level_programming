@@ -2,78 +2,56 @@
 
 /**
  *
- *  * print_number - prints a number
+ *  * reverse_array - reverses the content of an array of integers
  *
- *   * @n: Input number
+ *   * @a: an array of integers
  *
- *    */
+ *    * @n: number of elements of the array
+ *
+ *     * Return: returns void
+ *
+ *      */
 
+void reverse_array(int *a, int n)
 
+{int *start_c, *end_c, c;
 
-void print_number(int n)
+		int i;
 
-{
+		 /*Start_c and end_c is equal value of variable s*/
 
-		int res, temp, expo;
+			start_c = a;
 
+				end_c = a;
 
+				     /*Move the end_c to the last character*/
 
-			expo = 1;
-
-			/*Check negatives*/
-
-				if (n >= 0)
-
-							res = n * -1;
-
-					else
+					for (i = 0; i < n - 1; i++)
 
 							{
 
-										res = n;
+										end_c++;
 
-												_putchar('-');
+											}/* Swap the char from start and end */
 
-													}
+						/* index using begin_ptr and end_ptr */
 
+						for (i = 0; i < n / 2; i++)
 
+								{
 
-					/*Initialize exponent variable*/
+									                /*swap character*/
 
-						temp = res;
+											c = *end_c;
 
-							while (temp <= -10)
+													*end_c = *start_c;
 
-									{
+															*start_c = c;
 
-												expo *= 10;
+															              /*update pointers positions*/
 
-														temp /= 10;
+																	start_c++;
 
-															}
+																			end_c--;
 
-							/*Main */
-
-								while (expo >= 1)
-
-										{
-
-													_putchar(((res / expo) % 10) * -1 + '0');
-
-															expo /= 10;
-
-																}
-
-}
-
-Footer
-
-© 2022 GitHub, Inc.
-
-Footer navigation
-
-Terms
-
-Privacy
-
-
+																				}}
