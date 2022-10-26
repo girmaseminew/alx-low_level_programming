@@ -2,76 +2,100 @@
 
 /**
  *
- *  * infinite_add - adds two numbers
+ *  * separator - checks if character is a seperator
  *
- *   */
+ *   * @c: character to be checked
+ *
+ *    * Return: if seperator return 1. Otherwise return 0;
+ *
+ *     */
 
-char *infinite_add(char *n1, char *n2, char *r, int size_r)
+int separator(char c)
 
 {
 
-	int i, j, k, l, m, n;
+		/*Delcaring condition switch*/
 
-	for (i = 0; n1[i]; i++)
+		switch (c)
 
-		;
+				{
 
-	for (j = 0; n2[j]; j++)
+						case ' ':
 
-		;
+								case '\t':
 
-	if (i > size_r || j > size_r)
+								case '\n':
 
-		return (0);
+								case ',':
 
-	m = 0;
+								case ';':
 
-	for (i -= 1, j -= 1, k = 0; k < size_r - 1; i--, j--, k++)
+								case '.':
 
-	{
+								case '!':
 
-		n = m;
+								case '?':
 
-		if (i >= 0)
+								case '"':
 
-			n += n1[i] - '0';
+								case '(':
 
-		if (j >= 0)
+								case ')':
 
-			n += n2[j] - '0';
+								case '{':
 
-		if (i < 0 && j < 0 && n == 0)
+								case '}':
 
-		{
+									return (1);
 
-			break;
 
-		}
 
-		m = n / 10;
+										default:
 
-		r[k] = n % 10 + '0';
+											return (0);
 
-	}
+												}
 
-	r[k] = '\0';
 
-	if (i >= 0 || j >= 0 || m)
-
-		return (0);
-
-	for (k -= 1, l = 0; l < k; k--, l++)
-
-	{
-
-		m = r[k];
-
-		r[k] = r[l];
-
-		r[l] = m;
-
-	}
-
-	return (r);
 
 }
+
+/**
+ *
+ *  * cap_string - capitalizes chars after given deliminators
+ *
+ *   * @s: string to uppercase
+ *
+ *    * Return: returns modified string
+ *
+ *     */
+
+char *cap_string(char *s)
+
+{
+
+		int count, upper;
+
+		         upper = -32; /*value constant 32*/
+
+			          count = 0;
+
+				  	/*Start WHILE*/
+
+				  	while (s[count] != '\0')
+
+							{
+
+										/*letters lowercase*/
+
+										if (s[count] >= 'a' && s[count] <= 'z')
+
+													{/*Convert uppercase*/
+
+																	if (s[count] == *s || separator(s[count - 1]))
+
+																		                       s[count] += upper;}
+
+												count++; /*Add count*/}
+
+						      return (s);}
