@@ -1,67 +1,35 @@
-#include "holberton.h"
+ #include "holberton.h"
 
 /**
  *
- *  * print_number - prints a number
+ *  * _strcmp - Compares s1 and s2
  *
- *   * @n: Input number
+ *   *
  *
- *    */
+ *    * @s1: String to be compared against s2
+ *
+ *     * @s2: String to be compared against s1
+ *
+ *      * Return: Always 0.
+ *
+ *       */
 
-
-
-void print_number(int n)
+int _strcmp(char *s1, char *s2)
 
 {
 
-		int res, temp, expo;
+		int i = 0;
 
 
 
-			expo = 1;
+			while ((s1[i] == s2[i]) && (s1[i] != '\0'))
 
-			/*Check negatives*/
+					{
 
-				if (n >= 0)
+								i++;
 
-							res = n * -1;
+									}
 
-					else
-
-							{
-
-										res = n;
-
-												_putchar('-');
-
-													}
-
-
-
-					/*Initialize exponent variable*/
-
-						temp = res;
-
-							while (temp <= -10)
-
-									{
-
-												expo *= 10;
-
-														temp /= 10;
-
-															}
-
-							/*Main */
-
-								while (expo >= 1)
-
-										{
-
-													_putchar(((res / expo) % 10) * -1 + '0');
-
-															expo /= 10;
-
-																}
+				return (s1[i] - s2[i]);
 
 }
